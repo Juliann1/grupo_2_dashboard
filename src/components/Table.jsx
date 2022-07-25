@@ -1,23 +1,7 @@
-import React, { useEffect, useState } from "react";
 import TableRow from "./TableRow";
 
-function Table({productsData}) {
-    const [products, setProducts] = useState()
-
-    useEffect(() => {
-        if (productsData) {
-            setProducts(productsData)
-        } else {
-            fetch('/api/products')
-            .then(res => res.json())
-            .then(result => {
-                if (result) setProducts(result)
-            })
-        }
-
-    }, [productsData])
-
-    return ( 
+function Table({ products }) {
+    return (
         /* <!-- DataTales Example --> */
         <div className="card shadow mb-4">
             <div className="card-body">
@@ -29,7 +13,7 @@ function Table({productsData}) {
                         cellSpacing="0"
                     >
                         <thead>
-                            <tr> 
+                            <tr>
                                 <th>Nombre</th>
                                 <th>Descripción</th>
                                 <th>Categoría</th>
@@ -45,7 +29,7 @@ function Table({productsData}) {
                             </tr>
                         </tfoot>
                         <tbody>
-                            {products?.products.map((row, i) => {
+                            {products.map((row, i) => {
                                 return <TableRow {...row} key={i} />;
                             })}
                         </tbody>

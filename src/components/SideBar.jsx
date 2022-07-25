@@ -1,14 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import image from '../assets/images/logo_teapothouse.png';
 import ContentWrapper from './ContentWrapper';
 import CategoriesInDb from './CategoriesInDb';
 import LastProductInDb from './LastProductInDb';
-import NotFound from './NotFound';
 import ProductDetail from './ProductDetail';
+import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 import Table from './Table';
+import getData from '../services/getData';
 
 function SideBar(){
+    
+    const [products, setProducts] = useState([])
+    const [categories, setCategories] = useState([])
+    const [lastProduct, setLastProduct] = useState({})
+    const [users, setUsers] = useState({})
+    useEffect(() => {
+        getData('/api/products').then(result => {
+            setProducts(result.products)
+            setCategories(Object.keys(result.countByCategory))
+            getData(`/api/products/${result.count}`).then(res => setLastProduct(res))
+        })
+        getData('api/users/').then(result => setUsers(result))
+    }, [])
+    
     return(
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
@@ -64,20 +79,20 @@ function SideBar(){
             </ul>
             {/*<!-- End of Sidebar -->*/}
             <Switch>
+                <Route exact path="/">
+                    <ContentWrapper cbc={categories} products={products} users={users} lastProduct={lastProduct}/>
+                </Route>
                 <Route path="/CategoriesInDb">
-                    <CategoriesInDb />
+                    <CategoriesInDb cbc={categories}/>
                 </Route>
                 <Route path="/LastProductInDb">
-                    <LastProductInDb />
+                    <LastProductInDb lastProduct={lastProduct}/>
                 </Route>
                 <Route path="/Table">
-                    <Table />
+                    <Table products={products}/>
                 </Route>
                 <Route path="/ProductDetail">
-                    <ProductDetail />
-                </Route>
-                <Route exact path="/">
-                    <ContentWrapper />
+                    <ProductDetail lastProduct={lastProduct}/>
                 </Route>
                 <Route component={NotFound} />
             </Switch>

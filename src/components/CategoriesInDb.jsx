@@ -1,15 +1,4 @@
-import React, { useState, useEffect } from "react";
-
-function GenresInDb() {
-    const [categories, setCategories] = useState()
-    useEffect(() => {
-        fetch('/api/products')
-        .then(res => res.json())
-        .then(result => setCategories({
-            countByCategory: Object.keys(result.countByCategory)
-        }))    
-    }, [])
-
+function CategoriesInDb({ cbc }) {
     return (
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
@@ -20,11 +9,13 @@ function GenresInDb() {
                 </div>
                 <div className="card-body">
                     <div className="row">
-                        {categories?.countByCategory.map((e, i) => {
+                        {cbc.map((e, i) => {
                             return (
                                 <div className="col-lg-6 mb-4" key={i}>
                                     <div className="card bg-info text-white shadow">
-                                        <div className="card-body">{e.toUpperCase()}</div>
+                                        <div className="card-body">
+                                            {e.toUpperCase()}
+                                        </div>
                                     </div>
                                 </div>
                             );
@@ -36,4 +27,4 @@ function GenresInDb() {
     );
 }
 
-export default GenresInDb;
+export default CategoriesInDb;

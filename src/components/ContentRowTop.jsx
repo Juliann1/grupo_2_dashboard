@@ -3,7 +3,9 @@ import ContentRowCenter from './ContentRowCenter';
 import ContentRow from './ContentRow';
 import Table from './Table';
 
-function ContentRowTop({productsData, usersData}){
+function ContentRowTop({cbc, products, users, lastProduct}){
+	
+ 
     return(
         <React.Fragment>
 				{/*<!-- Content Row Top -->*/}
@@ -13,9 +15,9 @@ function ContentRowTop({productsData, usersData}){
 					</div>
 				
 					{/*<!-- Content Row -->*/}
-					<ContentRow productsData={productsData} usersData={usersData}/>
-					<ContentRowCenter />
-					<Table productsData={productsData} />
+					<ContentRow productsCount={products.length} categoryCount={cbc.length} usersCount={users.count}/>
+					<ContentRowCenter cbc={cbc} lastProduct={lastProduct}/>
+					<Table products={products}/>
 	
 				</div>
 				{/*<!--End Content Row Top-->*/}

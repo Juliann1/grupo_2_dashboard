@@ -1,24 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import TopBar from './TopBar';
-import ContentRowTop from './ContentRowTop';
-import Footer from './Footer';
+import React from "react";
+import TopBar from "./TopBar";
+import ContentRowTop from "./ContentRowTop";
+import Footer from "./Footer";
 
-function ContentWrapper(){
-    const [productsData, setProductsData] = useState()
-    const [usersData, setUsersData] = useState()
-
-    useEffect(() => {
-        fetch('/api/products')
-        .then(res => res.json())
-        .then(result => setProductsData(result))
-
-        fetch('/api/users')
-        .then(res => res.json())
-        .then(result => setUsersData(result))     
-    }, [])
-
-    
-
+function ContentWrapper({cbc, products, users, lastProduct}) {
     return (
         <React.Fragment>
             {/*<!-- Content Wrapper -->*/}
@@ -26,11 +11,11 @@ function ContentWrapper(){
                 {/*<!-- Main Content -->*/}
                 <div id="content">
                     <TopBar />
-                    <ContentRowTop productsData={productsData} usersData={usersData} />
+                    <ContentRowTop cbc={cbc} products={products} users={users} lastProduct={lastProduct}/>
                     <Footer />
                 </div>
-            </div>    
+            </div>
         </React.Fragment>
-    )
+    );
 }
 export default ContentWrapper;

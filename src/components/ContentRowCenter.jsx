@@ -1,21 +1,17 @@
-import React from 'react';
-import LastProductInDb from './LastProductInDb';
-import CategoriesInDb from './CategoriesInDb';
+import LastProductInDb from "./LastProductInDb";
+import CategoriesInDb from "./CategoriesInDb";
 
-function ContentRowCenter(){
-
+function ContentRowCenter({ cbc, lastProduct }) {
     return (
         <div className="row">
-            
             {/*<!-- Last Product in DB -->*/}
-            <LastProductInDb />
+            <LastProductInDb lastProduct={lastProduct} />
             {/*<!-- End content row last product in Data Base -->*/}
 
             {/*<!-- Categories in DB -->*/}
-            <CategoriesInDb />
-
+            <CategoriesInDb cbc={cbc} />
         </div>
-    )
+    );
 }
 
 export default ContentRowCenter;

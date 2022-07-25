@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import SmallCard from './SmallCard';
 
 /*  Cada set de datos es un objeto literal */
@@ -12,6 +11,14 @@ let productsInDb = {
     icon: 'fa-clipboard-list'
 }
 
+/* <!-- Users quantity --> */
+
+let usersInDb = {
+    title:'Usuarios Registrados' ,
+    color:'info',
+    quantity:'49',
+    icon:'fa-user-check'
+}
 /* <!-- Categories awards --> */
 
 let categoriesInDb = {
@@ -21,43 +28,18 @@ let categoriesInDb = {
     icon:'fa-award'
 }
 
-/* <!-- Users quantity --> */
-
-let usersInDb = {
-    title:'Usuarios Registrados' ,
-    color:'info',
-    quantity:'49',
-    icon:'fa-user-check'
-}
 
 let cartProps = [productsInDb, usersInDb, categoriesInDb];
 
-function ContentRow({productsData, usersData}){
-
-    const [data, setData] = useState()
-    const [cards, setCards] = useState()
-  
-    const urls = ['/api/products', '/api/users']
-    useEffect(() => {
-        Promise.all(urls.map(url =>
-            fetch(url)
-            .then(resp => resp.json())
-        )).then(result => setData(result))
-        
-        if (data) {
-            const { count, countByCategory } = data[0]
-            const categoryLen = Object.keys(countByCategory).length
-            const quantities = [count, data[1].count, categoryLen]
-           
-            setCards(cartProps.map((e, i) => {
-                return {
-                    ...e, 
-                    quantity: quantities[i]
-                }
-            }))
+function ContentRow({productsCount, usersCount, categoryCount}){
+    const arr = [productsCount, usersCount, categoryCount]
+    const cards = cartProps.map((e, i) => {
+        return {
+            ...e,
+            quantity: arr[i]
         }
-        
-    }, [productsData, usersData]) 
+
+    })
 
     return (
     
