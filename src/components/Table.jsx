@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import ChartRow from "./ChartRow";
+import TableRow from "./TableRow";
 
-function Chart({productsData}) {
+function Table({productsData}) {
     const [products, setProducts] = useState()
 
     useEffect(() => {
@@ -46,7 +46,7 @@ function Chart({productsData}) {
                         </tfoot>
                         <tbody>
                             {products?.products.map((row, i) => {
-                                return <ChartRow {...row} key={i} />;
+                                return <TableRow {...row} key={i} />;
                             })}
                         </tbody>
                     </table>
@@ -56,4 +56,4 @@ function Chart({productsData}) {
     );
 }
 
-export default Chart;
+export default Table;

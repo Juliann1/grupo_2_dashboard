@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function ChartRow({product_name, product_description, category, price}){
+function TableRow({product_name, product_description, category, price}){
    
     return (
                 <tr>
@@ -15,4 +15,4 @@ function ChartRow({product_name, product_description, category, price}){
     
         
 
-export default ChartRow;
+export default TableRow;

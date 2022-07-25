@@ -15,7 +15,7 @@ function GenresInDb() {
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
                     <h5 className="m-0 font-weight-bold text-gray-800">
-                        Categories in Data Base
+                        Categorías
                     </h5>
                 </div>
                 <div className="card-body">
@@ -23,7 +23,7 @@ function GenresInDb() {
                         {categories?.countByCategory.map((e, i) => {
                             return (
                                 <div className="col-lg-6 mb-4" key={i}>
-                                    <div className="card bg-dark text-white shadow">
+                                    <div className="card bg-info text-white shadow">
                                         <div className="card-body">{e.toUpperCase()}</div>
                                     </div>
                                 </div>

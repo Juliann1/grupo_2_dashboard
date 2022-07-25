@@ -6,8 +6,8 @@ import SmallCard from './SmallCard';
 /* <!-- Products in DB --> */
 
 let productsInDb = {
-    title: 'Products in Data Base',
-    color: 'primary', 
+    title: 'Productos Cargados',
+    color: 'info', 
     quantity: 21,
     icon: 'fa-clipboard-list'
 }
@@ -15,8 +15,8 @@ let productsInDb = {
 /* <!-- Categories awards --> */
 
 let categoriesInDb = {
-    title:'Categories in Data Base', 
-    color:'success', 
+    title:'Categorías', 
+    color:'info', 
     quantity: '79',
     icon:'fa-award'
 }
@@ -24,8 +24,8 @@ let categoriesInDb = {
 /* <!-- Users quantity --> */
 
 let usersInDb = {
-    title:'Users in Data Base' ,
-    color:'warning',
+    title:'Usuarios Registrados' ,
+    color:'info',
     quantity:'49',
     icon:'fa-user-check'
 }

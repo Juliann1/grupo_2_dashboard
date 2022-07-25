@@ -5,13 +5,13 @@ import CategoriesInDb from './CategoriesInDb';
 import LastProductInDb from './LastProductInDb';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
-import Chart from './Chart';
+import Table from './Table';
 
 function SideBar(){
     return(
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
-            <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul className="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -27,20 +27,20 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - Teapot House</span></Link>
+                        <span>Dashboard - TeapotHouse</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider"/>
 
                 {/*<!-- Heading -->*/}
-                <div className="sidebar-heading">Actions</div>
+                <div className="sidebar-heading">Secciones</div>
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
                 <Link className="nav-link" to="/CategoriesInDb">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Categories</span>
+                        <span>Categorías</span>
                     </Link>
                 </li>
 
@@ -48,14 +48,14 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link" to="/LastProductInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Last Product</span></Link>
+                        <span>Último producto ingresado</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/Chart">
+                <Link className="nav-link" to="/Table">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Products</span></Link>
+                        <span>Productos</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -72,8 +72,8 @@ function SideBar(){
                 <Route path="/LastProductInDb">
                     <LastProductInDb />
                 </Route>
-                <Route path="/Chart">
-                    <Chart />
+                <Route path="/Table">
+                    <Table />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
