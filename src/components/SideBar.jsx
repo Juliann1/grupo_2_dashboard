@@ -4,6 +4,7 @@ import ContentWrapper from './ContentWrapper';
 import CategoriesInDb from './CategoriesInDb';
 import LastProductInDb from './LastProductInDb';
 import NotFound from './NotFound';
+import ProductDetail from './ProductDetail';
 import {Link, Route, Switch} from 'react-router-dom';
 import Table from './Table';
 
@@ -63,9 +64,6 @@ function SideBar(){
             </ul>
             {/*<!-- End of Sidebar -->*/}
             <Switch>
-                <Route exact path="/">
-                    <ContentWrapper />
-                </Route>
                 <Route path="/CategoriesInDb">
                     <CategoriesInDb />
                 </Route>
@@ -74,6 +72,12 @@ function SideBar(){
                 </Route>
                 <Route path="/Table">
                     <Table />
+                </Route>
+                <Route path="/ProductDetail">
+                    <ProductDetail />
+                </Route>
+                <Route exact path="/">
+                    <ContentWrapper />
                 </Route>
                 <Route component={NotFound} />
             </Switch>

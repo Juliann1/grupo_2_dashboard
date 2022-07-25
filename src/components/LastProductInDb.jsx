@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
 
 function LastProductInDb(){
     const [lastProduct, setLastProduct] = useState()
@@ -25,7 +26,7 @@ function LastProductInDb(){
                         ...Cargando
                     </div>
                     <p></p>
-                    <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Detalle del producto</a>
+                    <Link className="btn btn-info" to="/ProductDetail">Detalle del producto</Link>
                 </div>
             </div>
         </div>
@@ -43,7 +44,7 @@ function LastProductInDb(){
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={lastProduct.firstImage} alt={lastProduct.product_description}/>
                     </div>
                     <p>{lastProduct.product_description}</p>
-                    <a className="btn btn-info" target="_blank" rel="nofollow" href="/">Detalle del producto</a>
+                    <Link className="btn btn-info" to="/ProductDetail">Detalle del producto</Link>
                 </div>
             </div>
         </div>
