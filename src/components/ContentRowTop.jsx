@@ -1,9 +1,9 @@
 import React from 'react';
 import ContentRowCenter from './ContentRowCenter';
-import ContentRowMovies from './ContentRowMovies';
+import ContentRow from './ContentRow';
 import Chart from './Chart';
 
-function ContentRowTop(){
+function ContentRowTop({productsData, usersData}){
     return(
         <React.Fragment>
 				{/*<!-- Content Row Top -->*/}
@@ -12,10 +12,10 @@ function ContentRowTop(){
 						<h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
 					</div>
 				
-					{/*<!-- Content Row Movies-->*/}
-					<ContentRowMovies />
+					{/*<!-- Content Row -->*/}
+					<ContentRow productsData={productsData} usersData={usersData}/>
 					<ContentRowCenter />
-					<Chart />
+					<Chart productsData={productsData} />
 	
 				</div>
 				{/*<!--End Content Row Top-->*/}

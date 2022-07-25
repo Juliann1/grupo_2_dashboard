@@ -1,11 +1,11 @@
 import React from 'react';
-import image from '../assets/images/logo-DH.png';
+import image from '../assets/images/logo_teapothouse.png';
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './GenresInDb';
+import CategoriesInDb from './CategoriesInDb';
 import LastProductInDb from './LastProductInDb';
-import ContentRowMovies from './ContentRowMovies';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
+import Chart from './Chart';
 
 function SideBar(){
     return(
@@ -16,7 +16,7 @@ function SideBar(){
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div className="sidebar-brand-icon">
-                        <img className="w-100" src={image} alt="Digital House"/>
+                        <img className="w-50" src={image} alt="Teapot House"/>
                     </div>
                 </a>
 
@@ -27,7 +27,7 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></Link>
+                        <span>Dashboard - Teapot House</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -38,63 +38,45 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                <Link className="nav-link" to="/GenresInDb">
+                <Link className="nav-link" to="/CategoriesInDb">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
+                        <span>Categories</span>
                     </Link>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/LastMovieInDb">
+                    <Link className="nav-link" to="/LastProductInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>Last Product</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/ContentRowMovies">
+                <Link className="nav-link" to="/Chart">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></Link>
+                        <span>Products</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
             {/*<!-- End of Sidebar -->*/}
-
-            {/*<!-- Microdesafio 1 -->*/}
-            {/*<!--<Route exact path="/">
-                <ContentWrapper />
-            </Route>
-            <Route path="/GenresInDb">
-                <GenresInDb />
-            </Route>
-            <Route path="/LastMovieInDb">
-                <LastMovieInDb />
-            </Route>
-            <Route path="/ContentRowMovies">
-                <ContentRowMovies />
-            </Route>*/}
-            {/*<!-- End Microdesafio 1 -->*/}
-
-            {/*<!-- End Microdesafio 2 -->*/}
             <Switch>
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
-                <Route path="/GenresInDb">
-                    <GenresInDb />
+                <Route path="/CategoriesInDb">
+                    <CategoriesInDb />
                 </Route>
-                <Route path="/LastMovieInDb">
+                <Route path="/LastProductInDb">
                     <LastProductInDb />
                 </Route>
-                <Route path="/ContentRowMovies">
-                    <ContentRowMovies />
+                <Route path="/Chart">
+                    <Chart />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
-            {/*<!-- End Microdesafio 2 -->*/}
         </React.Fragment>
     )
 }
