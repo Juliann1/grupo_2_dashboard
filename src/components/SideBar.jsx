@@ -8,6 +8,7 @@ import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 import Table from './Table';
 import getData from '../services/getData';
+import ProductsByCategory from './ProductsByCategory';
 
 function SideBar(){
     
@@ -93,6 +94,15 @@ function SideBar(){
                 </Route>
                 <Route path="/ProductDetail">
                     <ProductDetail lastProduct={lastProduct}/>
+                </Route>
+                <Route path="/pasteleria">
+                    <ProductsByCategory products={products}/>
+                </Route>
+                <Route path="/chocolateria">
+                    <ProductsByCategory products={products}/>
+                </Route>
+                <Route path="/panaderia">
+                    <ProductsByCategory products={products}/>
                 </Route>
                 <Route component={NotFound} />
             </Switch>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function CategoriesInDb({ cbc }) {
     return (
         <div className="col-lg-6 mb-4">
@@ -14,7 +16,9 @@ function CategoriesInDb({ cbc }) {
                                 <div className="col-lg-6 mb-4" key={i}>
                                     <div className="card bg-info text-white shadow">
                                         <div className="card-body">
-                                            {e.toUpperCase()}
+                                            <Link to={e} className="text-decoration-none text-reset">
+                                                {e.toUpperCase()}
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
