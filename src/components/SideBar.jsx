@@ -31,11 +31,11 @@ function SideBar(){
             <ul className="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
-                <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <Link className="sidebar-brand d-flex align-items-center justify-content-center" to='/'>
                     <div className="sidebar-brand-icon">
                         <img className="w-50" src={image} alt="Teapot House"/>
                     </div>
-                </a>
+                </Link>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider my-0"/>
@@ -95,13 +95,7 @@ function SideBar(){
                 <Route path="/ProductDetail">
                     <ProductDetail lastProduct={lastProduct}/>
                 </Route>
-                <Route path="/pasteleria">
-                    <ProductsByCategory products={products}/>
-                </Route>
-                <Route path="/chocolateria">
-                    <ProductsByCategory products={products}/>
-                </Route>
-                <Route path="/panaderia">
+                <Route path="/ProductsByCategory/:categoria">
                     <ProductsByCategory products={products}/>
                 </Route>
                 <Route component={NotFound} />
