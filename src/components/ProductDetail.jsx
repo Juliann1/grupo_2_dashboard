@@ -37,7 +37,7 @@ function ProductDetail({lastProduct}) {
               </tbody>
             </table>
             <div>
-              <img src={`${lastProduct.firstImage}`} alt="lastProduct-img" />
+              <img width="300" height="300" src={`${lastProduct.firstImage}`} alt="lastProduct-img" />
             </div>
           </div>
         </div>
